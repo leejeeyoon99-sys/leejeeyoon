@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이지윤 — Home directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Black+Han+Sans&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/galmuri/dist/galmuri.css" rel="stylesheet">
+<style>
+  :root{
+    --ink:#000; --paper:#fff;
+    --jua:'Jua', sans-serif;
+    --pix:'Galmuri11','Galmuri9',monospace;
+    --pixbig:'Galmuri14','Galmuri11',monospace;
+    --han:'Black Han Sans', sans-serif;
+  }
+  html,body{margin:0;background:#cfcfcf;}
+  *{box-sizing:border-box;}
+
+  /* dot grid + halftone helpers */
+  .dotgrid{ background-image:radial-gradient(var(--ink) 1.3px, transparent 1.5px); background-size:10px 10px; }
+  .dotgrid-lg{ background-image:radial-gradient(var(--ink) 2px, transparent 2.4px); background-size:16px 16px; }
+  .halftone-fade{ -webkit-mask-image:linear-gradient(180deg,#000,transparent); mask-image:linear-gradient(180deg,#000,transparent); }
+  .scan::after{ content:""; position:absolute; inset:0; pointer-events:none;
+    background:repeating-linear-gradient(0deg, rgba(255,255,255,.10) 0 2px, transparent 2px 4px); mix-blend-mode:overlay; }
+  .dash{ border:3px dashed var(--ink); }
+
+  canvas.mascot{ image-rendering:pixelated; display:block; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="pixel-art.js"></script>
+<script type="text/babel" src="design-canvas.jsx"></script>
+
+<script type="text/babel">
+const { useRef, useEffect } = React;
+
+// renders a mascot pose into a crisp canvas
+function Mascot({ pose='wave', scale=6, invert=false, style }){
+  const ref = useRef(null);
+  useEffect(()=>{
+    const spec = PixelArt.pose(pose, scale);
+    if(invert){ spec.black='#fff'; spec.white='#000'; }
+    PixelArt.renderScene(ref.current, spec);
+  },[pose,scale,invert]);
+  return <canvas ref={ref} className="mascot" style={style} />;
+}
+
+const Tag = ({children, dark}) => (
+  <span style={{
+    fontFamily:'var(--pix)', fontSize:13, padding:'5px 11px',
+    border:'2px dashed '+(dark?'#fff':'#000'),
+    color:dark?'#fff':'#000', display:'inline-block',
+    transform:`rotate(${(Math.random()*6-3).toFixed(1)}deg)`
+  }}>{children}</span>
+);
+
+/* ============ DIRECTION A — Sticker Zine (white) ============ */
+function DirA(){
+  return (
+    <div className="dotgrid" style={{width:'100%',height:'100%',background:'#fff',position:'relative',overflow:'hidden',
+       backgroundImage:'radial-gradient(#000 1.3px, transparent 1.5px)', backgroundSize:'11px 11px'}}>
+      {/* marquee */}
+      <div style={{position:'absolute',top:0,left:0,right:0,height:34,background:'#000',color:'#fff',
+        display:'flex',alignItems:'center',overflow:'hidden',whiteSpace:'nowrap',fontFamily:'var(--pix)',fontSize:15,letterSpacing:1}}>
+        <div style={{paddingLeft:14}}>★ OPEN TO WORK ★ 함께 일해요 ★ OPEN TO WORK ★ 함께 일해요 ★ OPEN TO WORK ★ 함께 일해요 ★</div>
+      </div>
+      <div style={{position:'absolute',inset:'34px 0 0 0',padding:'40px 44px',display:'flex',alignItems:'center',gap:24}}>
+        <div style={{flex:1}}>
+          <div style={{fontFamily:'var(--pix)',fontSize:14,letterSpacing:3,marginBottom:8}}>● HELLO, 안녕하세요</div>
+          <div style={{fontFamily:'var(--jua)',fontSize:96,lineHeight:.92,letterSpacing:-2}}>이지윤</div>
+          <div style={{fontFamily:'var(--pix)',fontSize:22,letterSpacing:4,margin:'6px 0 18px'}}>LEE&nbsp;JEEYOON</div>
+          <div style={{fontFamily:'var(--jua)',fontSize:19,background:'#000',color:'#fff',display:'inline-block',padding:'4px 14px'}}>데이터 비주얼라이저 · Data Viz</div>
+          <div style={{display:'flex',gap:10,marginTop:22,flexWrap:'wrap'}}>
+            <Tag>HTML</Tag><Tag>Python</Tag><Tag>Data&nbsp;Viz</Tag><Tag>API</Tag>
+          </div>
+        </div>
+        <div style={{position:'relative'}}>
+          <div className="dotgrid-lg" style={{position:'absolute',inset:'-14px',borderRadius:'50%',opacity:.5}}></div>
+          <Mascot pose="wave" scale={6} style={{position:'relative'}} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ============ DIRECTION B — Inverted Poster (black) ============ */
+function DirB(){
+  return (
+    <div className="scan" style={{width:'100%',height:'100%',background:'#000',position:'relative',overflow:'hidden',color:'#fff'}}>
+      <div className="dotgrid" style={{position:'absolute',inset:0,opacity:.22,
+        backgroundImage:'radial-gradient(#fff 1.3px, transparent 1.6px)',backgroundSize:'12px 12px'}}></div>
+      <div style={{position:'relative',height:'100%',display:'flex',flexDirection:'column',justifyContent:'center',padding:'0 50px'}}>
+        <div style={{fontFamily:'var(--pix)',fontSize:14,letterSpacing:4,marginBottom:10,color:'#fff'}}>PORTFOLIO ’26 // 이지윤</div>
+        <div style={{display:'flex',alignItems:'center',gap:6}}>
+          <div>
+            <div style={{fontFamily:'var(--han)',fontSize:150,lineHeight:.82,letterSpacing:-4}}>LEE</div>
+            <div style={{fontFamily:'var(--han)',fontSize:150,lineHeight:.82,letterSpacing:-4,WebkitTextStroke:'2px #fff',color:'transparent'}}>JEE</div>
+            <div style={{fontFamily:'var(--han)',fontSize:150,lineHeight:.82,letterSpacing:-4}}>YOON</div>
+          </div>
+          <div style={{marginLeft:'auto',textAlign:'center'}}>
+            <div style={{border:'3px dashed #fff',borderRadius:'50%',padding:18,display:'inline-block'}}>
+              <Mascot pose="wink" scale={6} invert={true} />
+            </div>
+            <div style={{fontFamily:'var(--pix)',fontSize:13,marginTop:12,letterSpacing:2}}>실시간 데이터<br/>대시보드 ✺ 제작</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ============ DIRECTION C — Layered ID Zine ============ */
+function DirC(){
+  return (
+    <div style={{width:'100%',height:'100%',background:'#fff',position:'relative',overflow:'hidden'}}>
+      <div className="dotgrid halftone-fade" style={{position:'absolute',inset:0,
+        backgroundImage:'radial-gradient(#000 2px, transparent 2.4px)',backgroundSize:'15px 15px',opacity:.5}}></div>
+      {/* outline mega name */}
+      <div style={{position:'absolute',top:18,left:-6,fontFamily:'var(--han)',fontSize:118,lineHeight:.8,
+        color:'transparent',WebkitTextStroke:'2.5px #000',letterSpacing:-3,opacity:.9}}>JEE<br/>YOON</div>
+      {/* ID card */}
+      <div className="dash" style={{position:'absolute',right:40,top:46,width:250,background:'#fff',padding:14,transform:'rotate(3deg)',
+        boxShadow:'10px 10px 0 #000'}}>
+        <div style={{background:'#000',color:'#fff',fontFamily:'var(--pix)',fontSize:13,padding:'4px 8px',display:'flex',justifyContent:'space-between',letterSpacing:1}}>
+          <span>ID&nbsp;CARD</span><span>No.99</span></div>
+        <div className="dotgrid" style={{margin:'10px 0',padding:'8px',display:'flex',justifyContent:'center',
+          backgroundImage:'radial-gradient(#000 1.4px,transparent 1.7px)',backgroundSize:'9px 9px'}}>
+          <div style={{background:'#fff',padding:6,border:'2px solid #000'}}>
+            <Mascot pose="head" scale={6} />
+          </div>
+        </div>
+        <div style={{fontFamily:'var(--jua)',fontSize:30,lineHeight:1}}>이지윤</div>
+        <div style={{fontFamily:'var(--pix)',fontSize:13,letterSpacing:1,marginTop:2}}>LEE JEEYOON · DATA VIZ</div>
+      </div>
+      {/* sticker tags scattered */}
+      <div style={{position:'absolute',left:34,bottom:40,display:'flex',flexDirection:'column',gap:12,alignItems:'flex-start'}}>
+        <div style={{fontFamily:'var(--jua)',fontSize:20,background:'#000',color:'#fff',padding:'4px 12px',transform:'rotate(-3deg)'}}>안녕하세요 👋</div>
+        <div style={{display:'flex',gap:9,flexWrap:'wrap',maxWidth:300}}>
+          <Tag>HTML</Tag><Tag>Python</Tag><Tag>Data&nbsp;Viz</Tag><Tag>API</Tag>
+        </div>
+      </div>
+      <div style={{position:'absolute',right:18,bottom:18,fontFamily:'var(--pix)',fontSize:12,border:'2px solid #000',padding:'3px 8px'}}>✺ visitors 001,204</div>
+    </div>
+  );
+}
+
+function App(){
+  return (
+    <DesignCanvas>
+      <DCSection id="home" title="HOME — hero directions" subtitle="이지윤 · pixel-zine portfolio · pick one (or mix elements)">
+        <DCArtboard id="a" label="A · Sticker Zine (white)" width={780} height={460}><DirA/></DCArtboard>
+        <DCArtboard id="b" label="B · Inverted Poster (black)" width={780} height={460}><DirB/></DCArtboard>
+        <DCArtboard id="c" label="C · Layered ID Zine" width={780} height={460}><DirC/></DCArtboard>
+      </DCSection>
+    </DesignCanvas>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>
