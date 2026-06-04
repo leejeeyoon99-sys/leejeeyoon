@@ -192,6 +192,21 @@
   }
   if (toggleBtn) toggleBtn.addEventListener("click", () => setPaused(!paused));
 
+  // SPACE / CLICK → jump (resume + trigger the next hop immediately)
+  function jumpNow() {
+    if (paused) setPaused(false);
+    if (phase === "land") { phase = "jump"; tStart = performance.now(); }
+  }
+  canvas.addEventListener("click", jumpNow);
+  window.addEventListener("keydown", (e) => {
+    if (e.code === "Space" || e.key === " ") {
+      const t = e.target, tag = t && t.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA") return; // don't hijack the guestbook
+      e.preventDefault();
+      jumpNow();
+    }
+  });
+
   // respect reduced motion: start paused on a static frame
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   tStart = performance.now();

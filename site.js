@@ -248,15 +248,16 @@
   function guestbook() {
     const list = $("#gbList"), form = $("#gbForm");
     if (!list || !form) return;
-    const KEY = "jy_guestbook";
+    const KEY = "jy_guestbook_v2";
+    const today = () => { const d = new Date(); return `${String(d.getMonth()+1).padStart(2,"0")}/${String(d.getDate()).padStart(2,"0")}`; };
     const seed = [
-      { who: "지나가던 디자이너", msg: "포트폴리오 너무 귀엽다…! 픽셀아트 최고 ✦" },
-      { who: "anon", msg: "data viz 작업 깔끔해요. 연락드릴게요!" },
+      { who: "지나가던 디자이너", msg: "포트폴리오 너무 귀엽다…! 픽셀아트 최고 ✦", date: "05/28" },
+      { who: "anon", msg: "data viz 작업 깔끔해요. 연락드릴게요!", date: "06/01" },
     ];
     let entries = JSON.parse(localStorage.getItem(KEY) || "null") || seed;
     function render() {
       list.innerHTML = entries.map(e => `
-        <div class="gb-entry"><div class="who">${esc(e.who)} <span style="font-size:11px;opacity:.6">★</span></div>
+        <div class="gb-entry"><div class="who">${esc(e.who)} <span class="gb-date">${esc(e.date || "")} ★</span></div>
         <div>${esc(e.msg)}</div></div>`).join("");
     }
     function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
@@ -266,7 +267,7 @@
       const who = $("#gbWho").value.trim() || "익명";
       const msg = $("#gbMsg").value.trim();
       if (!msg) return;
-      entries = [{ who, msg }, ...entries].slice(0, 30);
+      entries = [{ who, msg, date: today() }, ...entries].slice(0, 30);
       localStorage.setItem(KEY, JSON.stringify(entries));
       render();
       form.reset();

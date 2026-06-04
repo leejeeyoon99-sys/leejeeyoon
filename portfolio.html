@@ -3,7 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>이지윤 · LEE JEEYOON — Data Viz Portfolio</title>
+<title>이지윤 · LEE JEEYOON — 패션 업계 7년 데이터 비주얼라이저</title>
+<meta name="description" content="패션 업계 7년 경험의 데이터 비주얼라이저 이지윤 포트폴리오. 공공데이터 API, 실시간 대시보드, Data Viz 전문.">
+<meta property="og:title" content="이지윤 · LEE JEEYOON — 데이터 비주얼라이저">
+<meta property="og:description" content="패션 업계 7년 경험의 데이터 비주얼라이저 이지윤 포트폴리오. 공공데이터 API, 실시간 대시보드, Data Viz 전문.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'%3E%3Crect width='16' height='16' fill='%23fff'/%3E%3Cpath d='M3 1h10v10h-2v3h-1v-3h-4v3h-1v-3h-2z' fill='%23000'/%3E%3Crect x='4' y='3' width='8' height='7' fill='%23fff'/%3E%3Crect x='5' y='5' width='2' height='2' fill='%23000'/%3E%3Crect x='9' y='5' width='2' height='2' fill='%23000'/%3E%3Crect x='6' y='8' width='4' height='1' fill='%23000'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -21,9 +26,9 @@
 <!-- ============ NAV DOCK ============ -->
 <nav class="nav" aria-label="섹션 이동">
   <a href="#home">홈<br>HOME</a>
+  <a href="#stage">경력<br>STAGE</a>
   <a href="#work">작업<br>WORK</a>
   <a href="#about">소개<br>ABOUT</a>
-  <a href="#stage">경력<br>STAGE</a>
 </nav>
 
 <!-- ============ HOME / HERO ============ -->
@@ -35,11 +40,14 @@
         <div class="eyebrow">● HELLO &nbsp;안녕하세요 &nbsp;★</div>
         <h1 class="hero-name glitch" data-text="이지윤">이지윤</h1>
         <div class="hero-sub">LEE&nbsp;JEEYOON</div>
-        <div class="hero-role">데이터 비주얼라이저</div>
+        <div class="hero-role">패션 업계 7년 경험을 가진 데이터 비주얼라이저</div>
         <div style="display:flex;gap:9px;flex-wrap:wrap;margin:22px 0 26px;">
-          <span class="tag solid">HTML</span><span class="tag">Python</span><span class="tag">Data&nbsp;Viz</span><span class="tag">API</span><span class="tag">Dashboard</span>
+          <span class="tag solid">HTML <b class="lv">★★★</b></span><span class="tag">Python <b class="lv">★★☆</b></span><span class="tag">Data&nbsp;Viz <b class="lv">★★★</b></span><span class="tag">API</span><span class="tag">Dashboard</span>
         </div>
-        <a href="#work" class="stamp">작업 보기 <span aria-hidden="true">↓</span></a>
+        <div class="hero-cta">
+          <a href="#work" class="stamp">작업 보기 <span aria-hidden="true">↓</span></a>
+          <a href="mailto:leejeeyoon99@gmail.com" class="stamp ghost">✉ 연락하기</a>
+        </div>
       </div>
       <div class="mascot-stage">
         <div class="mascot-ring" aria-hidden="true"></div>
@@ -78,8 +86,8 @@
         <div class="game-controls">
           <button class="btn" id="toggle">❚❚ PAUSE</button>
           <span>LANDINGS&nbsp;<span id="score">000</span></span>
-          <span style="opacity:.6;">— 한 칸씩, 7년을 올라온 것처럼.</span>
         </div>
+        <div class="game-hint">SPACE / CLICK — 점프 · 7년의 커리어를 한 칸씩 올라가는 여정</div>
       </div>
       <aside class="item-box reveal">
         <div class="ig">★ ITEM GET ★</div>
@@ -120,14 +128,17 @@
           <span class="pill">01 · LIVE</span>
           <canvas data-thumb="bars" aria-label="막대 차트 썸네일"></canvas>
         </div>
-        <h3 class="glitch" data-text="청약 대시보드">청약 대시보드</h3>
-        <p class="desc">공공데이터 API 기반 실시간 청약 정보 시각화 대시보드.</p>
-        <div class="meta">
-          <span class="tag">공공데이터 API</span><span class="tag">실시간</span><span class="tag">Data&nbsp;Viz</span>
-        </div>
-        <div class="row">
-          <span class="url">cheongyak-dashboard-tawny.vercel.app</span>
-          <a class="stamp ghost" href="https://cheongyak-dashboard-tawny.vercel.app/" target="_blank" rel="noopener">VISIT <span aria-hidden="true">↗</span></a>
+        <div class="card-body">
+          <span class="cardno">PROJECT 01</span>
+          <h3 class="glitch" data-text="청약 대시보드">청약 대시보드</h3>
+          <p class="desc">공공데이터 API 기반 실시간 청약 정보 대시보드. 청약 일정·경쟁률 자동 업데이트.</p>
+          <div class="meta">
+            <span class="tag">공공데이터 API</span><span class="tag">실시간</span><span class="tag">Data&nbsp;Viz</span>
+          </div>
+          <div class="row">
+            <span class="url">cheongyak-dashboard-tawny.vercel.app</span>
+            <a class="stamp ghost" href="https://cheongyak-dashboard-tawny.vercel.app/" target="_blank" rel="noopener">VISIT <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
       </article>
 
@@ -138,14 +149,17 @@
           <span class="pill">02 · LIVE</span>
           <canvas data-thumb="donut" aria-label="도넛 차트 썸네일"></canvas>
         </div>
-        <h3 class="glitch" data-text="VOC 분석 대시보드">VOC 분석 대시보드</h3>
-        <p class="desc">Google Workspace 연동 고객 VOC 수집·분석 시각화.</p>
-        <div class="meta">
-          <span class="tag">Google&nbsp;Workspace</span><span class="tag">VOC</span><span class="tag">분석</span>
-        </div>
-        <div class="row">
-          <span class="url">gmail-dashboard-o397.vercel.app</span>
-          <a class="stamp ghost" href="https://gmail-dashboard-o397.vercel.app" target="_blank" rel="noopener">VISIT <span aria-hidden="true">↗</span></a>
+        <div class="card-body">
+          <span class="cardno">PROJECT 02</span>
+          <h3 class="glitch" data-text="VOC 분석 대시보드">VOC 분석 대시보드</h3>
+          <p class="desc">Google Workspace 연동 VOC 수집·분류 자동화. 응대 시간 단축 목표.</p>
+          <div class="meta">
+            <span class="tag">Google&nbsp;Workspace</span><span class="tag">VOC</span><span class="tag">분석</span>
+          </div>
+          <div class="row">
+            <span class="url">gmail-dashboard-o397.vercel.app</span>
+            <a class="stamp ghost" href="https://gmail-dashboard-o397.vercel.app" target="_blank" rel="noopener">VISIT <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
       </article>
 
@@ -156,14 +170,17 @@
           <span class="pill">03 · VIDEO</span>
           <canvas data-thumb="video" aria-label="영상 재생 썸네일"></canvas>
         </div>
-        <h3 class="glitch" data-text="부동산 영상 제작">부동산 영상 제작</h3>
-        <p class="desc">부동산 매물·브랜드 홍보 영상 기획 및 편집.</p>
-        <div class="meta">
-          <span class="tag">영상 제작</span><span class="tag">편집</span><span class="tag">부동산</span>
-        </div>
-        <div class="row">
-          <span class="url">drive.google.com · 부동산 영상</span>
-          <a class="stamp ghost" href="https://drive.google.com/file/d/17cZ63ybnltUnBJJbAx5dPLjOQP4-GHIk/view?usp=sharing" target="_blank" rel="noopener">VIEW <span aria-hidden="true">↗</span></a>
+        <div class="card-body">
+          <span class="cardno">PROJECT 03</span>
+          <h3 class="glitch" data-text="부동산 영상 제작">부동산 영상 제작</h3>
+          <p class="desc">HyperFrames + ElevenLabs 나레이션 활용, 93초 키네틱 타이포 영상 제작.</p>
+          <div class="meta">
+            <span class="tag">영상 제작</span><span class="tag">키네틱 타이포</span><span class="tag">부동산</span>
+          </div>
+          <div class="row">
+            <span class="url">drive.google.com · 부동산 영상</span>
+            <a class="stamp ghost" href="https://drive.google.com/file/d/17cZ63ybnltUnBJJbAx5dPLjOQP4-GHIk/view?usp=sharing" target="_blank" rel="noopener">VIEW <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
       </article>
     </div>
@@ -197,18 +214,18 @@
       </div>
       <!-- info -->
       <div class="about-info">
-        <h2>데이터를<br>시각화하는<br>MZ 마케터입니다.</h2>
+        <h2>패션 업계 7년<br>경험을 가진<br>데이터 비주얼라이저</h2>
         <ul class="info-list reveal">
           <li><span class="k">EMAIL</span><span class="v"><a href="mailto:leejeeyoon99@gmail.com">leejeeyoon99@gmail.com</a></span></li>
-          <li><span class="k">PHONE</span><span class="v">010-7400-2499</span></li>
+          <li><span class="k">CONTACT</span><span class="v">문의는 이메일로 부탁드려요</span></li>
           <li><span class="k">CAREER</span><span class="v">여성 의류 공장 도매 발주·수주·판매 7년</span></li>
-          <li><span class="k">EDUCATION</span><span class="v">학사 졸업 · Bachelor’s Degree</span></li>
+          <li><span class="k">EDUCATION</span><span class="v">○○대학교 ○○학과 졸업</span></li>
           <li><span class="k">FOCUS</span><span class="v">실시간 데이터 대시보드 · API 시각화</span></li>
         </ul>
         <div style="display:flex;gap:9px;flex-wrap:wrap;">
-          <span class="tag" style="background:#000;color:#fff;border-color:#fff;">HTML</span>
-          <span class="tag" style="background:#000;color:#fff;border-color:#fff;">Python</span>
-          <span class="tag" style="background:#000;color:#fff;border-color:#fff;">Data&nbsp;Viz</span>
+          <span class="tag" style="background:#000;color:#fff;border-color:#fff;">HTML <b class="lv">★★★</b></span>
+          <span class="tag" style="background:#000;color:#fff;border-color:#fff;">Python <b class="lv">★★☆</b></span>
+          <span class="tag" style="background:#000;color:#fff;border-color:#fff;">Data&nbsp;Viz <b class="lv">★★★</b></span>
           <span class="tag" style="background:#000;color:#fff;border-color:#fff;">공공데이터&nbsp;API</span>
           <span class="tag" style="background:#000;color:#fff;border-color:#fff;">Google&nbsp;Workspace</span>
         </div>
@@ -246,6 +263,7 @@
       </div>
     </div>
     <div class="footnote">© 2026 이지윤 · LEE JEEYOON &nbsp;✦&nbsp; HANDMADE WITH PIXELS &nbsp;✦&nbsp; leejeeyoon99@gmail.com</div>
+    <a class="top-btn" href="#home" aria-label="맨 위로">↑ TOP</a>
   </div>
 </footer>
 
@@ -262,6 +280,5 @@
 <script src="pixel-art.js"></script>
 <script src="site.js"></script>
 <script src="stair-jump.js"></script>
-<script src="sounds.js"></script>
 </body>
 </html>

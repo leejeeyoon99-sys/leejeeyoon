@@ -12,23 +12,26 @@
     ".....##############.....", // 2
     "....################....", // 3
     "...##################...", // 4
-    "...##################...", // 5
+    "..####################..", // 5
     "..####################..", // 6
     "..###oooooooooooooo###..", // 7 bangs / face top
-    "..##oooooooooooooooo##..", // 8
-    "..##ooo###oooo###ooo##..", // 9 eyes
-    "..##ooo###oooo###ooo##..", // 10 eyes
-    "..##oooooooooooooooo##..", // 11
-    "..##oooooooooooooooo##..", // 12
-    "..##oooo#oooooo#oooo##..", // 13 blush dots
-    "..##ooooo#oooo#ooooo##..", // 14 smile corners
-    "..##oooooo####oooooo##..", // 15 smile
-    "...##oooooooooooooo##...", // 16 jaw
-    "....##oooooooooooo##....", // 17
-    ".....##oooooooooo##.....", // 18
-    "......##oooooooo##......", // 19 chin
-    "........#oooooo#........", // 20 neck
-    "........#oooooo#........", // 21 neck
+    "..###oooooooooooooo###..", // 8
+    "..###oo###oooo###oo###..", // 9 eyes
+    "..###oo###oooo###oo###..", // 10 eyes
+    "..###oooooooooooooo###..", // 11
+    "..###oooooooooooooo###..", // 12
+    "..###oooooooooooooo###..", // 13
+    "..###oooo#oooo#oooo###..", // 14 smile corners
+    "..###ooooo####ooooo###..", // 15 smile
+    "..###oooooooooooooo###..", // 16
+    "..###oooooooooooooo###..", // 17
+    "..####oooooooooooo####..", // 18 chin rounding (long hair stays wide)
+    "..#####oooooooooo#####..", // 19
+    "..######oooooooo######..", // 20 jaw -> neck
+    "..#####...oooo...#####..", // 21 neck + hair falling to shoulders
+    "..####....oooo....####..", // 22
+    "..####....oooo....####..", // 23
+    "..###.....oooo.....###..", // 24 hair tips
   ];
 
   // ---- WAVING HAND (open palm, spread fingers) ----
@@ -151,7 +154,7 @@
     scale = scale || 8;
     if (name === "wave") {
       return {
-        cols: 33, rows: 26, scale,
+        cols: 33, rows: 30, scale,
         parts: [
           { sprite: "head", x: 0, y: 3 },
           { sprite: "hand", x: 24, y: 3 },          // raised waving hand, upper-right
@@ -162,7 +165,7 @@
     }
     if (name === "point") {
       return {
-        cols: 38, rows: 24, scale,
+        cols: 38, rows: 28, scale,
         parts: [
           { sprite: "head", x: 0, y: 1 },
           { sprite: "point", x: 25, y: 12 },         // pointing hand to the right
@@ -173,7 +176,7 @@
     if (name === "wink") {
       // alt greeting: head + star
       return {
-        cols: 30, rows: 24, scale,
+        cols: 30, rows: 28, scale,
         parts: [
           { sprite: "head", x: 0, y: 2 },
           { sprite: "star", x: 24, y: 2 },
@@ -182,7 +185,7 @@
     }
     // headshot (ID card)
     return {
-      cols: 24, rows: 22, scale,
+      cols: 24, rows: 25, scale,
       parts: [{ sprite: "head", x: 0, y: 0 }],
     };
   }
