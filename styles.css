@@ -95,7 +95,7 @@ section{position:relative;}
 .sec-head{display:flex;align-items:flex-end;gap:18px;margin-bottom:34px;flex-wrap:wrap;}
 .sec-title{font-family:var(--jua);font-size:clamp(38px,6.2vw,64px);line-height:.92;letter-spacing:-2px;word-break:keep-all;}
 .sec-kicker{font-family:var(--pix);font-size:15px;letter-spacing:3px;border:2px solid var(--ink);padding:4px 10px;display:inline-block;margin-bottom:8px;}
-.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:34px;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:34px;}
 .card{position:relative;min-width:0;background:var(--paper);border:3px dashed var(--ink);padding:16px;box-shadow:10px 10px 0 var(--ink);
   transition:transform .12s ease;}
 .card:hover{transform:translate(-2px,-2px);}
@@ -166,6 +166,37 @@ footer .stamp.ghost:hover{background:var(--paper);color:var(--ink);}
 
 /* reveal: content is ALWAYS fully visible (no opacity tricks) */
 .reveal{}
+
+/* ---- STAGE 02 (embedded game + career item) ---------------------- */
+#stage{padding:24px 0 64px;}
+.stage-layout{display:grid;grid-template-columns:1.45fr .85fr;gap:34px;align-items:stretch;}
+.screen{position:relative;border:4px solid var(--ink);background:#000;box-shadow:12px 12px 0 var(--ink);overflow:hidden;}
+.screen canvas{width:100%;height:auto;display:block;}
+.screen::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:4;
+  background:repeating-linear-gradient(0deg, rgba(255,255,255,.08) 0 1px, transparent 1px 4px);}
+.bolt{position:absolute;width:7px;height:7px;background:var(--paper);z-index:5;}
+.bolt.tl{top:6px;left:6px;}.bolt.tr{top:6px;right:6px;}.bolt.bl{bottom:6px;left:6px;}.bolt.br{bottom:6px;right:6px;}
+.game-controls{display:flex;gap:12px;align-items:center;margin-top:14px;font-family:var(--pix);font-size:13px;}
+.btn{font-family:var(--pix);font-size:13px;background:var(--ink);color:var(--paper);border:3px solid var(--ink);
+  padding:8px 16px;cursor:pointer;box-shadow:5px 5px 0 var(--ink);transition:transform .08s,box-shadow .08s;}
+.btn:hover{transform:translate(2px,2px);box-shadow:3px 3px 0 var(--ink);}
+.btn:active{transform:translate(5px,5px);box-shadow:0 0 0 var(--ink);}
+
+/* career "item get" box */
+.item-box{border:3px dashed var(--ink);background:var(--paper);box-shadow:10px 10px 0 var(--ink);
+  padding:18px 18px 22px;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;}
+.item-box .ig{font-family:var(--pix);font-size:14px;letter-spacing:3px;background:var(--ink);color:var(--paper);
+  padding:4px 12px;margin-bottom:6px;}
+.item-stage{position:relative;margin:14px 0 6px;}
+.item-stage::before{content:"✦";position:absolute;left:-14px;top:2px;font-size:14px;}
+.item-stage::after{content:"✦";position:absolute;right:-14px;bottom:6px;font-size:12px;}
+.dress-float{animation:dressbob 1.6s ease-in-out infinite;}
+.dress-float canvas{display:block;}
+@keyframes dressbob{0%,100%{transform:translateY(0) rotate(-2deg);}50%{transform:translateY(-9px) rotate(2deg);}}
+.item-box .iname{font-family:var(--jua);font-size:24px;line-height:1;margin-top:6px;}
+.item-box .idesc{font-family:var(--pix);font-size:13px;line-height:1.7;margin-top:8px;}
+.item-box .exp{font-family:var(--pix);font-size:13px;letter-spacing:1px;border:2px solid var(--ink);
+  padding:4px 10px;margin-top:12px;}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;} .marquee .track,.mascot-ring{animation:none;}}
 
 /* ---- responsive -------------------------------------------------- */
@@ -173,6 +204,7 @@ footer .stamp.ghost:hover{background:var(--paper);color:var(--ink);}
   .hero-grid{grid-template-columns:1fr;}
   .mascot-stage{order:-1;}
   .cards{grid-template-columns:1fr;}
+  .stage-layout{grid-template-columns:1fr;}
   .about-grid{grid-template-columns:1fr;gap:28px;}
   .idcard{margin:0 auto;}
   .gb{grid-template-columns:1fr;}

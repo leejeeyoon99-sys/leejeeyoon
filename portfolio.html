@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이지윤 · LEE JEEYOON — Data Viz Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" role="presentation">
+  <div class="track">
+    <span>★ OPEN TO WORK ★</span><span>함께 일해요</span><span>✦ DATA VISUALIZATION ✦</span><span>실시간 대시보드</span><span>★ LEE JEEYOON ★</span><span>공공데이터 · VOC 분석</span>
+  </div>
+</div>
+
+<!-- ============ NAV DOCK ============ -->
+<nav class="nav" aria-label="섹션 이동">
+  <a href="#home">홈<br>HOME</a>
+  <a href="#work">작업<br>WORK</a>
+  <a href="#about">소개<br>ABOUT</a>
+  <a href="#stage">경력<br>STAGE</a>
+</nav>
+
+<!-- ============ HOME / HERO ============ -->
+<section id="home" class="scan dotgrid" data-screen-label="Home">
+  <div class="hero-outline" aria-hidden="true">JEE<br>YOON</div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">● HELLO &nbsp;안녕하세요 &nbsp;★</div>
+        <h1 class="hero-name glitch" data-text="이지윤">이지윤</h1>
+        <div class="hero-sub">LEE&nbsp;JEEYOON</div>
+        <div class="hero-role">데이터 비주얼라이저</div>
+        <div style="display:flex;gap:9px;flex-wrap:wrap;margin:22px 0 26px;">
+          <span class="tag solid">HTML</span><span class="tag">Python</span><span class="tag">Data&nbsp;Viz</span><span class="tag">API</span><span class="tag">Dashboard</span>
+        </div>
+        <a href="#work" class="stamp">작업 보기 <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="mascot-stage">
+        <div class="mascot-ring" aria-hidden="true"></div>
+        <canvas class="mascot" data-pose="wave" data-scale="7" role="img" aria-label="픽셀 캐릭터가 손을 흔드는 모습"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">SCROLL<br>↓ ↓ ↓</div>
+</section>
+
+<!-- divider -->
+<div class="divider" aria-hidden="true">
+  <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <defs><pattern id="wv" width="60" height="42" patternUnits="userSpaceOnUse">
+      <path d="M0 21 Q15 5 30 21 T60 21" fill="none" stroke="currentColor" stroke-width="3"></path>
+    </pattern></defs>
+    <rect width="100%" height="42" fill="url(#wv)"></rect>
+  </svg>
+</div>
+
+<!-- ============ STAGE 02 — embedded game + career item ============ -->
+<section id="stage" data-screen-label="Stage 02">
+  <div class="wrap">
+    <div class="sec-head reveal" style="gap:14px;">
+      <div>
+        <div class="sec-kicker">STAGE 02 · CAREER</div>
+        <div class="sec-title">끝없이 성장 / CLIMB</div>
+      </div>
+    </div>
+    <div class="stage-layout">
+      <div>
+        <div class="screen">
+          <span class="bolt tl"></span><span class="bolt tr"></span><span class="bolt bl"></span><span class="bolt br"></span>
+          <canvas id="game" width="720" height="432"></canvas>
+        </div>
+        <div class="game-controls">
+          <button class="btn" id="toggle">❚❚ PAUSE</button>
+          <span>LANDINGS&nbsp;<span id="score">000</span></span>
+          <span style="opacity:.6;">— 한 칸씩, 7년을 올라온 것처럼.</span>
+        </div>
+      </div>
+      <aside class="item-box reveal">
+        <div class="ig">★ ITEM GET ★</div>
+        <div class="item-stage">
+          <div class="dress-float"><canvas data-dress data-scale="7" role="img" aria-label="핑크 원피스 아이템"></canvas></div>
+        </div>
+        <div class="iname">원피스 / ONE-PIECE</div>
+        <p class="idesc">여성 의류 공장 도매<br>발주 · 수주 · 판매</p>
+        <div class="exp">+ 7 YEARS EXP</div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- divider -->
+<div class="divider" aria-hidden="true">
+  <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100%" height="42" fill="url(#wv)"></rect>
+  </svg>
+</div>
+
+<!-- ============ WORK ============ -->
+<section id="work" data-screen-label="Work">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <canvas class="mascot" data-pose="point" data-scale="5" role="img" aria-label="픽셀 캐릭터가 작업물을 가리키는 모습"></canvas>
+      <div>
+        <div class="sec-kicker">PROJECTS · 03</div>
+        <div class="sec-title">작업 / WORK</div>
+      </div>
+    </div>
+
+    <div class="cards">
+      <!-- Project 1 -->
+      <article class="card reveal">
+        <canvas class="mascot peek" data-pose="head" data-scale="2" aria-hidden="true"></canvas>
+        <div class="thumb">
+          <span class="pill">01 · LIVE</span>
+          <canvas data-thumb="bars" aria-label="막대 차트 썸네일"></canvas>
+        </div>
+        <h3 class="glitch" data-text="청약 대시보드">청약 대시보드</h3>
+        <p class="desc">공공데이터 API 기반 실시간 청약 정보 시각화 대시보드.</p>
+        <div class="meta">
+          <span class="tag">공공데이터 API</span><span class="tag">실시간</span><span class="tag">Data&nbsp;Viz</span>
+        </div>
+        <div class="row">
+          <span class="url">cheongyak-dashboard-tawny.vercel.app</span>
+          <a class="stamp ghost" href="https://cheongyak-dashboard-tawny.vercel.app/" target="_blank" rel="noopener">VISIT <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="card reveal">
+        <canvas class="mascot peek" data-pose="head" data-scale="2" aria-hidden="true"></canvas>
+        <div class="thumb">
+          <span class="pill">02 · LIVE</span>
+          <canvas data-thumb="donut" aria-label="도넛 차트 썸네일"></canvas>
+        </div>
+        <h3 class="glitch" data-text="VOC 분석 대시보드">VOC 분석 대시보드</h3>
+        <p class="desc">Google Workspace 연동 고객 VOC 수집·분석 시각화.</p>
+        <div class="meta">
+          <span class="tag">Google&nbsp;Workspace</span><span class="tag">VOC</span><span class="tag">분석</span>
+        </div>
+        <div class="row">
+          <span class="url">gmail-dashboard-o397.vercel.app</span>
+          <a class="stamp ghost" href="https://gmail-dashboard-o397.vercel.app" target="_blank" rel="noopener">VISIT <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="card reveal">
+        <canvas class="mascot peek" data-pose="head" data-scale="2" aria-hidden="true"></canvas>
+        <div class="thumb">
+          <span class="pill">03 · VIDEO</span>
+          <canvas data-thumb="video" aria-label="영상 재생 썸네일"></canvas>
+        </div>
+        <h3 class="glitch" data-text="부동산 영상 제작">부동산 영상 제작</h3>
+        <p class="desc">부동산 매물·브랜드 홍보 영상 기획 및 편집.</p>
+        <div class="meta">
+          <span class="tag">영상 제작</span><span class="tag">편집</span><span class="tag">부동산</span>
+        </div>
+        <div class="row">
+          <span class="url">drive.google.com · 부동산 영상</span>
+          <a class="stamp ghost" href="https://drive.google.com/file/d/17cZ63ybnltUnBJJbAx5dPLjOQP4-GHIk/view?usp=sharing" target="_blank" rel="noopener">VIEW <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- divider -->
+<div class="divider" aria-hidden="true">
+  <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100%" height="42" fill="url(#wv)"></rect>
+  </svg>
+</div>
+
+<!-- ============ ABOUT (dark) ============ -->
+<section id="about" class="scan scan-w" data-screen-label="About">
+  <div class="dotgrid-w fade-down" style="position:absolute;inset:0;opacity:.16;" aria-hidden="true"></div>
+  <div class="wrap" style="position:relative;z-index:2;">
+    <div class="eyebrow" style="margin-bottom:28px;">★ ABOUT ME · 소개 ★</div>
+    <div class="about-grid">
+      <!-- ID card -->
+      <div class="idcard reveal">
+        <div class="top"><span>★ ID CARD</span><span>No. 99</span></div>
+        <div class="photo dotgrid">
+          <div style="background:#fff;padding:6px;border:2px solid #000;">
+            <canvas class="mascot" data-pose="head" data-scale="6" role="img" aria-label="이지윤 픽셀 초상화"></canvas>
+          </div>
+        </div>
+        <div class="nm">이지윤</div>
+        <div class="nm-en">LEE JEEYOON · DATA VIZ</div>
+        <div class="barcode" aria-hidden="true"></div>
+      </div>
+      <!-- info -->
+      <div class="about-info">
+        <h2>데이터를<br>시각화하는<br>MZ 마케터입니다.</h2>
+        <ul class="info-list reveal">
+          <li><span class="k">EMAIL</span><span class="v"><a href="mailto:leejeeyoon99@gmail.com">leejeeyoon99@gmail.com</a></span></li>
+          <li><span class="k">PHONE</span><span class="v">010-7400-2499</span></li>
+          <li><span class="k">CAREER</span><span class="v">여성 의류 공장 도매 발주·수주·판매 7년</span></li>
+          <li><span class="k">EDUCATION</span><span class="v">학사 졸업 · Bachelor’s Degree</span></li>
+          <li><span class="k">FOCUS</span><span class="v">실시간 데이터 대시보드 · API 시각화</span></li>
+        </ul>
+        <div style="display:flex;gap:9px;flex-wrap:wrap;">
+          <span class="tag" style="background:#000;color:#fff;border-color:#fff;">HTML</span>
+          <span class="tag" style="background:#000;color:#fff;border-color:#fff;">Python</span>
+          <span class="tag" style="background:#000;color:#fff;border-color:#fff;">Data&nbsp;Viz</span>
+          <span class="tag" style="background:#000;color:#fff;border-color:#fff;">공공데이터&nbsp;API</span>
+          <span class="tag" style="background:#000;color:#fff;border-color:#fff;">Google&nbsp;Workspace</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER / GUESTBOOK ============ -->
+<footer data-screen-label="Footer">
+  <div class="wrap">
+    <div class="gb">
+      <div class="reveal">
+        <h3>방명록 · GUESTBOOK</h3>
+        <p style="font-family:var(--pix);font-size:13px;line-height:1.7;opacity:.85;margin:0 0 14px;">한 마디 남겨주세요! 같이 일하고 싶으시면 이메일도 환영이에요 ✦</p>
+        <form class="gb-form" id="gbForm">
+          <input id="gbWho" type="text" maxlength="20" placeholder="이름 / NAME" aria-label="이름">
+          <textarea id="gbMsg" maxlength="120" placeholder="메시지 / MESSAGE…" aria-label="메시지"></textarea>
+          <button type="submit" class="stamp" style="align-self:flex-start;">남기기 <span aria-hidden="true">✎</span></button>
+        </form>
+        <a class="stamp ghost" href="mailto:leejeeyoon99@gmail.com" style="margin-top:14px;">✉ 이메일 보내기</a>
+      </div>
+      <div>
+        <div class="gb-list" id="gbList" aria-live="polite"></div>
+        <div class="badges">
+          <div class="badge inv">★ Best viewed<br>in 1024×768</div>
+          <div class="badge">Made with<br>♥ &amp; pixels</div>
+          <div class="badge inv">100% B&amp;W<br>GUARANTEED</div>
+          <div class="badge">No CSS<br>frameworks!</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;margin-top:18px;font-family:var(--pix);font-size:13px;letter-spacing:1px;">
+          <span>YOU ARE VISITOR</span>
+          <span class="counter" id="counter" aria-label="방문자 수"></span>
+        </div>
+      </div>
+    </div>
+    <div class="footnote">© 2026 이지윤 · LEE JEEYOON &nbsp;✦&nbsp; HANDMADE WITH PIXELS &nbsp;✦&nbsp; leejeeyoon99@gmail.com</div>
+  </div>
+</footer>
+
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <rect width="100" height="100" fill="#000"></rect>
+    <g fill="#fff"><rect x="38" y="22" width="24" height="10"></rect><rect x="34" y="30" width="32" height="26"></rect>
+    <rect x="30" y="38" width="6" height="6" fill="#000"></rect><rect x="64" y="38" width="6" height="6" fill="#000"></rect></g>
+    <g fill="#000"><rect x="42" y="40" width="5" height="5"></rect><rect x="53" y="40" width="5" height="5"></rect>
+    <rect x="44" y="49" width="12" height="3"></rect></g>
+  </svg>
+</template>
+
+<script src="pixel-art.js"></script>
+<script src="site.js"></script>
+<script src="stair-jump.js"></script>
+</body>
+</html>

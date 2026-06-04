@@ -86,6 +86,72 @@
     });
   }
 
+  // 부동산 영상 — film frame + play triangle + timeline
+  function drawVideo(canvas) {
+    const s = 4, GW = 92, GH = 58;
+    const ctx = setupCanvas(canvas, GW, GH, s);
+    // title chips
+    cell(ctx, 6, 5, 16, 4, s); cell(ctx, GW - 18, 5, 12, 4, s);
+    // screen (black) with film perforations top & bottom
+    const sx = 10, sy = 12, sw = GW - 20, sh = 30;
+    cell(ctx, sx, sy, sw, sh, s);                 // black screen
+    for (let x = sx + 3; x < sx + sw - 2; x += 7) { // perforations
+      cell(ctx, x, sy + 2, 3, 3, s, "#fff");
+      cell(ctx, x, sy + sh - 5, 3, 3, s, "#fff");
+    }
+    // white play triangle, pointing right
+    const baseX = 38, tipX = 56, top = 19, bot = 35, mid = 27;
+    for (let gx = baseX; gx <= tipX; gx++) {
+      const frac = (gx - baseX) / (tipX - baseX);
+      const half = Math.round((1 - frac) * (bot - top) / 2);
+      for (let gy = mid - half; gy <= mid + half; gy++) cell(ctx, gx, gy, 1, 1, s, "#fff");
+    }
+    // timeline bar + knob
+    cell(ctx, sx, sy + sh + 5, sw, 2, s);
+    cell(ctx, sx + Math.round(sw * 0.62), sy + sh + 3, 5, 6, s);
+  }
+
+  // 핑크 원피스 — the ONLY colored element on the whole page (game item)
+  const PINK = "#ff3e9a";
+  const DRESS = [
+    ".....##.....",
+    "....####....",
+    "...######...",
+    "...######...",
+    "...######...",
+    "....####....",
+    "...######...",
+    "..########..",
+    "..########..",
+    ".##########.",
+    ".##########.",
+    "############",
+    "############",
+    ".##########.",
+  ];
+  function drawDress(canvas) {
+    const s = +canvas.dataset.scale || 7;
+    const GW = DRESS[0].length, GH = DRESS.length;
+    canvas.width = (GW + 2) * s; canvas.height = (GH + 2) * s;
+    const ctx = canvas.getContext("2d");
+    ctx.imageSmoothingEnabled = false;
+    const at = (x, y, c) => { ctx.fillStyle = c; ctx.fillRect((x + 1) * s, (y + 1) * s, s, s); };
+    // pass 1: black outline (4-neighbours of any filled cell)
+    for (let y = 0; y < GH; y++) for (let x = 0; x < GW; x++) {
+      if (DRESS[y][x] !== "#") continue;
+      [[1,0],[-1,0],[0,1],[0,-1]].forEach(([dx,dy]) => {
+        const nx = x+dx, ny = y+dy;
+        if (ny<0||ny>=GH||nx<0||nx>=GW||DRESS[ny][nx]!=="#") at(nx, ny, "#000");
+      });
+    }
+    // pass 2: pink fill
+    for (let y = 0; y < GH; y++) for (let x = 0; x < GW; x++) {
+      if (DRESS[y][x] === "#") at(x, y, PINK);
+    }
+    // pass 3: tiny white highlight on the bodice
+    at(4, 2, "#fff"); at(4, 3, "#fff");
+  }
+
   /* ---------- marquee duplication (seamless) ---------- */
   function setupMarquee() {
     $$(".marquee .track").forEach(t => {
@@ -214,7 +280,13 @@
   /* ---------- init ---------- */
   function init() {
     $$("canvas.mascot").forEach(renderMascot);
-    $$("[data-thumb]").forEach(c => { c.dataset.thumb === "bars" ? drawBars(c) : drawDonut(c); });
+    $$("[data-thumb]").forEach(c => {
+      const t = c.dataset.thumb;
+      if (t === "bars") drawBars(c);
+      else if (t === "video") drawVideo(c);
+      else drawDonut(c);
+    });
+    $$("[data-dress]").forEach(drawDress);
     setupMarquee();
     counter();
     guestbook();
